@@ -7,7 +7,7 @@ User=hamdi
 Group=www-data
 WorkingDirectory=/home/hamdi/flask-app
 Environment="PATH=/home/hamdi/flask-app/env/bin"
-ExecStart=/home/hamdi/flask-app/env/bin/gunicorn --chdir /home/hamdi/flask-app --workers 3 --bind unix:flask-app.sock -m 007 wsgi:app
+ExecStart=/home/hamdi/flask-app/env/bin/gunicorn --chdir /home/hamdi/flask-app --workers 3 --bind 0.0.0.0:8000 -m 007 wsgi:app
 StandardOutput=file:/var/log/flask-app.log
 StandardError=file:/var/log/flask-app-Error.log
 
