@@ -11,12 +11,14 @@ def hello():
     return "<h1 style='color:blue'>Hello There!</h1>"
 
 
-@app.route("/index")
+@app.route("/index", methods=('GET',))
 def index():
+    print("Herereeee")
     
     conn = get_db_connection()
     posts = conn.execute('SELECT * FROM posts').fetchall()
     conn.close()
+    print(posts)
     return render_template('index.html', posts=posts)
 
 
