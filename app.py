@@ -2,6 +2,7 @@ from distutils.util import get_host_platform
 import sqlite3
 from flask import Flask, jsonify, render_template, request, url_for, flash, redirect
 from werkzeug.exceptions import abort
+import subprocess
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'your secret key'
@@ -39,6 +40,7 @@ def create():
 
 def get_db_connection():
     conn = sqlite3.connect('database.db')
+    subprocess.call(['chmod', '0444', 'database.db'])
     conn.row_factory = sqlite3.Row
     return conn
 
