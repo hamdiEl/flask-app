@@ -8,7 +8,7 @@ app.config['SECRET_KEY'] = 'your secret key'
 
 @app.route("/")
 def hello():
-    return "<h1 style='color:red'>Hello There!</h1>"
+    return "<h1 style='color:black'>Hello There!</h1>"
 
 
 @app.route("/index", methods=('GET',))
